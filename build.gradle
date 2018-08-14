@@ -1,0 +1,38 @@
+group 'com.ptconsultancy'
+
+def projectName = "Domain"
+def version = "1.0"
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': projectName,
+                   'Implementation-Version': version
+    }
+}
+
+def jenkins = "C:/Program Files (x86)/Jenkins/workspace"
+def buildDir = "${jenkins}/${projectName}"
+def localRepository = "C:/Users/thomsonp/.m2/repository/ptconsultancy"
+
+task copyFiles(dependsOn: test) {
+    doLast {
+        println "Copying jar to local repository now"
+        copy {
+            from file("${buildDir}/build/libs")
+            include "*.jar"
+            into file("${localRepository}/${projectName}")
+        }
+    }
+}
