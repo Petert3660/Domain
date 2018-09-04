@@ -3,13 +3,8 @@ package com.ptconsultancy.domain.utilities;
 import java.io.File;
 import java.io.IOException;
 import org.apache.commons.io.FileUtils;
-import org.springframework.util.FileCopyUtils;
 
 public class FileUtilities {
-
-    public static void fileCopy(String src, String target) throws IOException {
-        FileCopyUtils.copy(new File(src), new File(target));
-    }
 
     public static void writeStringToFile(String filename, String value) throws IOException {
 
