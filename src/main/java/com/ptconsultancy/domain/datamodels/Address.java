@@ -1,4 +1,4 @@
-package com.ptconsultancy.domain;
+package com.ptconsultancy.domain.datamodels;
 
 import java.io.Serializable;
 
