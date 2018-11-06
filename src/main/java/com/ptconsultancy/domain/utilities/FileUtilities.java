@@ -2,6 +2,7 @@ package com.ptconsultancy.domain.utilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import org.apache.commons.io.FileUtils;
 
 public class FileUtilities {
@@ -40,4 +41,10 @@ public class FileUtilities {
     }
 
     public static void deleteDirectory(File dir) throws IOException { FileUtils.deleteDirectory(dir); }
+
+    public static int getFileLengthInLines(String file) throws IOException {
+        File src = new File(file);
+        List<String> lines = FileUtils.readLines(src, "UTF-8");
+        return lines.size();
+    }
 }
