@@ -47,4 +47,10 @@ public class FileUtilities {
         List<String> lines = FileUtils.readLines(src, "UTF-8");
         return lines.size();
     }
+
+    public static int getFileLengthInLines(File file) throws IOException {
+        List<String> lines = FileUtils.readLines(file, "UTF-8");
+        return lines.size();
+    }
 }
+
